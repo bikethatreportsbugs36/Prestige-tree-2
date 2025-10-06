@@ -1,7 +1,7 @@
 let modInfo = {
-	name: "The ??? Tree",
-	author: "nobody",
-	pointsName: "points",
+	name: "The SOMETHING Tree",
+	author: "Somebody",
+	pointsName: "skill",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.1",
+	name: "The Update Update",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -21,7 +21,7 @@ let changelog = `<h1>Changelog:</h1><br>
 		- Added things.<br>
 		- Added stuff.`
 
-let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
+let winText = `Congratulations! You have reached the end and beaten this game, but for now, please have AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -42,6 +42,19 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	if (hasUpgrade('p', 11)) gain = gain.times(3)
+	if (hasUpgrade('p', 12)) gain = gain.times(5)
+	if (hasUpgrade('p', 13)) gain = gain.times(upgradeEffect('p', 13))
+	if (hasUpgrade('p', 15)) gain = gain.times(50)
+	if (hasUpgrade('p', 16)) gain = gain.times(upgradeEffect('p', 16))
+	if (hasUpgrade('p', 21)) gain = gain.times(1000)
+	if (hasUpgrade('e', 11)) gain = gain.times(5)
+	if (hasUpgrade('e', 13)) gain = gain.times(upgradeEffect('e', 13))
+	if (hasUpgrade('s', 11)) mult = gain.times(4.5)
+	if (hasUpgrade('s', 14)) mult = gain.times(16.5)
+	if (hasUpgrade('s', 15)) gain = gain.times(upgradeEffect('s', 15))
+	if (hasUpgrade('k', 11)) mult = mult.times(500)
+	
 	return gain
 }
 
