@@ -12,7 +12,7 @@ addLayer("p", {
     baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.55, // Prestige currency exponent
+    exponent: 0.50, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('p', 14)) mult = mult.times(4)
@@ -42,7 +42,7 @@ addLayer("p", {
         13: {
             title: "A More Interesting Boost",
             description: "Skill gain is boosted based on Prestige Points.",
-            cost: new Decimal(12),
+            cost: new Decimal(22),
             effect() {
                 return player[this.layer].points.add(1).pow(0.525)
             },
@@ -51,18 +51,18 @@ addLayer("p", {
         14: {
             title: "More Prestige Points",
             description: "Prestige Point gain is multiplied by 4.",
-            cost: new Decimal(55),
+            cost: new Decimal(85),
         },
         15: {
             title: "HUGE Skill Boost",
             description: "Skill gain is multiplied by 50.",
-            cost: new Decimal(375),
+            cost: new Decimal(1175),
             tooltip: "The next upgrade will cost 10,000 Prestige Points.",
         },
         16: {
             title: "Exponential",
             description: "Skill gain is boosted based on Prestige Points.",
-            cost: new Decimal(70000),
+            cost: new Decimal(702000),
             effect() {
                 return player[this.layer].points.add(1).pow(0.25)
             },
@@ -112,7 +112,7 @@ addLayer("e", {
     baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.425, // Prestige currency exponent
+    exponent: 0.375, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('e', 12)) mult = mult.times(1.5)
@@ -145,7 +145,7 @@ addLayer("e", {
             description: "Skill gain is boosted based on Energy.",
             cost: new Decimal(5),
             effect() {
-                return player[this.layer].points.add(2).pow(0.675)
+                return player[this.layer].points.add(2).pow(0.275)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
@@ -171,7 +171,7 @@ addLayer("s", {
     baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.405, // Prestige currency exponent
+    exponent: 0.355, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
        
@@ -245,7 +245,7 @@ addLayer("k", {
     baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.333, // Prestige currency exponent
+    exponent: 0.287, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         
