@@ -326,12 +326,12 @@ addLayer("t", {
         12: {
             title: "Finally something diffrent",
             description: "Unlock Leveling (COMING SOON) and x1.3 tools gain.",
-            cost: new Decimal(2),
+            cost: new Decimal(5),
         },
         13: {
             title: "Reading Books",
             description: "x2.5 Knowledge gain, but x0.75 energy gain.",
-            cost: new Decimal(4),
+            cost: new Decimal(45),
             
         },
         14: {
