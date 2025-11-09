@@ -33,7 +33,7 @@ addLayer("c", {
         canBuyMax() {}, // Only needed for static layers with buy max
         gainMult() { // Calculate the multiplier for main currency from bonuses
             mult = new Decimal(1)
-            if (hasUpgrade(this.layer, 166)) mult = mult.times(2) // These upgrades don't exist
+            if (hasMilestone(this.layer, 0)) mult = mult.times(1.5) // These upgrades don't exist
 			if (hasUpgrade(this.layer, 120)) mult = mult.times(upgradeEffect(this.layer, 120))
             return mult
         },
@@ -62,7 +62,7 @@ addLayer("c", {
         milestones: {
             0: {requirementDescription: "3 Lollipops",
                 done() {return player[this.layer].best.gte(3)}, // Used to determine when to give the milestone
-                effectDescription: "Unlock the next milestone",
+                effectDescription: "Unlock the next milestone. Boosts lollipops by x1.5, and Points by x2",
             },
             1: {requirementDescription: "4 Lollipops",
                 unlocked() {return hasMilestone(this.layer, 0)},
@@ -116,7 +116,7 @@ addLayer("c", {
                 cost: new Decimal(1),
                 unlocked() { return (hasUpgrade(this.layer, 11))},
                 effect() { // Calculate bonuses from the upgrade. Can return a single value or an object with multiple values
-                    let ret = player[this.layer].points.add(1).pow(player[this.layer].upgrades.includes(24)?1.1:(player[this.layer].upgrades.includes(14)?0.75:0.5)) 
+                    let ret = player[this.layer].points.add(1).pow(player[this.layer].upgrades.includes(24)?1.2:(player[this.layer].upgrades.includes(14)?0.75:0.5)) 
                     if (ret.gte("1e20000000")) ret = ret.sqrt().times("1e10000000")
                     return ret;
                 },

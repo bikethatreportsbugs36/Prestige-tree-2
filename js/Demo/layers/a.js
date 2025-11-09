@@ -21,7 +21,7 @@ addLayer("a", {
             doneTooltip: "You did it!", // Showed when the achievement is completed
         },
         12: {
-            name: "Impossible!",
+            name: "100 is a lot",
             done() {return false},
             goalTooltip: "Mwahahaha!", // Shows when achievement is not completed
             doneTooltip: "HOW????", // Showed when the achievement is completed

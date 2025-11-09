@@ -43,6 +43,7 @@ function getPointGen() {
 
 	let gain = new Decimal(1)
 	if (hasUpgrade("c", 12)) gain = gain.times(upgradeEffect("c", 12))
+	if (inChallenge("c", 11)) gain = gain.times(0.125)
 	return gain
 }
 
@@ -56,7 +57,7 @@ function addedPlayerData() { return {
 var displayThings = [
 	function() {if (player.points.eq(69)) return "Tee hee!"},
 	function() {if (player.f.points.gt(1)) return `You have ${player.f.points} farm points. (Which do nothing.)`},
-	function() {if (inChallenge("c", 11)) return "The game is currently <h1>0%</h1> harder."},
+	function() {if (inChallenge("c", 11)) return "The game is currently <h1>x8.00 times</h1> harder."},
 ]
 
 // Determines when the game "ends"
